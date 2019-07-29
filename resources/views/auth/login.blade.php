@@ -1,7 +1,34 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
+<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+    @csrf
+    <span class="login100-form-title p-b-59">
+        Sign Up
+    </span>
+
+    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+        <span class="label-input100">{{ __('E-Mail Address') }}</span>
+        <input class="input100" id="email" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+        <span class="label-input100">{{ __('Password') }}</span>
+        <input class="input100" id="password" type="password" placeholder="Password" name="password" required autocomplete="current-password">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn text-center"></div>
+            <button class="login100-form-btn" type="submit">
+                {{ __('Login') }}
+            </button>
+        </div>
+    </div>
+</form>
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +96,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
