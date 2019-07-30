@@ -17,6 +17,7 @@ class CreateMasterProductTable extends Migration
             $table->bigIncrements('id');
             $table->string('product_name',100);
             $table->string('product_category',50);
+            $table->text('attachment_file');
             $table->string('status',10)->default('ACTIVE')->comment('ACTIVE, INACTIVE');
             $table->timestamps();
         });
